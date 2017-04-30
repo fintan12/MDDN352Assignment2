@@ -1,1 +1,20 @@
-ECHO is on.
+.square {
+  display: block;
+  height: 350px;
+  width: 350px;
+  margin: 0 auto;
+  background-color: #000;
+  transition: background-color 1s linear;
+}
+
+.dangerous-color {
+  background-color: #FF0000;
+}
+
+.average-color {
+  background-color: #ff8432;
+}
+
+.optimal-color {
+  background-color: #8ba649;
+}
