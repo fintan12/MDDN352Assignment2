@@ -10,6 +10,8 @@ function getData() {
         else if (currentTemp > 9 && currentTemp < 20) {
           $('.output').addClass('average-color');
         }
+
+        console.log(result.main.temp); 
   }});
 
 
