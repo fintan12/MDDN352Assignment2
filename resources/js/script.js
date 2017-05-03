@@ -8,19 +8,216 @@ $( document ).ready(function() {
   );
     });
 
+function normalizeTemp() {
+  var tempInput = $('#temp-input').val();
+  console.log(tempInput);
+  tempInput = tempInput.sort();
 
+  if (tempInput.length() == 1) {
+
+    switch(tempInput[0]) {
+    case 1:
+        return [0, 10];
+        break;
+    case 2:
+        return [11, 20];
+        break;
+    default:
+        return [21, 30];
+    }
+  } else {
+    var firstNum = tempInput[0];
+    var lastNum = tempInput[tempInput.length() - 1];
+
+    var firstNumRange, lastNumRange;
+
+    switch(firstNum) {
+    case 1:
+        firstNumRange = [0, 10];
+        break;
+    case 2:
+        firstNumRange = [11, 20];
+        break;
+    default:
+        firstNumRange = [21, 30];
+    }
+
+    switch(lastNum) {
+    case 1:
+        lastNumRange = [0, 10];
+        break;
+    case 2:
+        lastNumRange = [11, 20];
+        break;
+    default:
+        lastNumRange = [21, 30];
+    }
+
+    var joinedRange = firstNumRange.concat(lastNumRange).sort();
+
+    return [joinedRange[0], joinedRange[joinedRange.length() - 1]]
+
+  }
+}
+
+function normalizehumidity() {
+  var humidityInput = $('#humidity-input').val();
+  console.log(humidityInput);
+  humidityInput = humidityInput.sort();
+
+  if (humidityInput.length() == 1) {
+
+    switch(humidityInput[0]) {
+    case 1:
+        return [0, 25];
+        break;
+    case 2:
+        return [26, 50];
+        break;
+    case 3:
+        return [51, 75];
+        break;
+    default:
+        return [76, 100];
+    }
+  } else {
+    var firstNum = humidityInput[0];
+    var lastNum = humidityInput[humidityInput.length() - 1];
+
+    var firstNumRange, lastNumRange;
+
+    switch(firstNum) {
+    case 1:
+        firstNumRange = [0, 25];
+        break;
+    case 2:
+        firstNumRange = [26, 50];
+        break;
+    case 3:
+        firstNumRange = [51, 75];
+        break;
+    default:
+        firstNumRange = [76, 100];
+    }
+
+    switch(lastNum) {
+    case 1:
+        lastNumRange = [0, 25];
+        break;
+    case 2:
+        lastNumRange = [26, 50];
+        break;
+    case 3:
+        lastNumRange = [51, 75];
+        break;
+    default:
+        lastNumRange = [76, 100];
+    }
+
+    var joinedRange = firstNumRange.concat(lastNumRange).sort();
+
+    return [joinedRange[0], joinedRange[joinedRange.length() - 1]]
+
+  }
+}
+
+function normalizewind() {
+  var windInput = $('#wind-input').val();
+  console.log(windInput);
+  windInput = windInput.sort();
+
+  if (windInput.length() == 1) {
+
+    switch(windInput[0]) {
+    case 1:
+        return [0, 5.5];
+        break;
+    case 2:
+        return [5.6, 11.1];
+        break;
+    default:
+        return [11.2, 16.6];
+    }
+  } else {
+    var firstNum = windInput[0];
+    var lastNum = windInput[windInput.length() - 1];
+
+    var firstNumRange, lastNumRange;
+
+    switch(firstNum) {
+    case 1:
+        firstNumRange = [0, 5.5];
+        break;
+    case 2:
+        firstNumRange = [5.6, 11.1];
+        break;
+    default:
+        firstNumRange = [11.2, 16.6];
+    }
+
+    switch(lastNum) {
+    case 1:
+        lastNumRange = [0, 5.5];
+        break;
+    case 2:
+        lastNumRange = [5.6, 11.1];
+        break;
+    default:
+        lastNumRange = [11.2, 16.6];
+    }
+
+    var joinedRange = firstNumRange.concat(lastNumRange).sort();
+
+    return [joinedRange[0], joinedRange[joinedRange.length() - 1]]
+
+  }
+}
+
+function checktemp(currentTemp, tempRange) {
+  if (currentTemp >= tempRange[0] && currentTemp <= tempRange[1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkhumidity(currentHumidity, humidityRange) {
+  if (currentHumidity >= humidityRange[0] && currentHumidity <= humidityRange[1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkwind(currentWind, windRange) {
+  if (currentWind >= windRange[0] && currentWind <= WindRange[1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function getData() {
-  var input = $('.input-range').val()
+  var tempRange = normalizeTemp();
+  var humidityRange = normalizeRain();
+  var windRange = normalizeWind();
 
   $.ajax({url: "http://api.openweathermap.org/data/2.5/weather?q=Wellington&units=Metric&APPID=842002ec4742e8ab7d2032ec14f2fe8e", success: function(result){
         var currentTemp = result.main.temp;
+        var currentHumidity = result.main.humidity;
+        var currentWind = result.wind.speed;
 
-        if (currentTemp > 0 && currentTemp < 10) {
-          $('.output').addClass('dangerous-color');
+        var tempResult = checktemp(currentTemp, tempRange);
+        var humidityResult = checkhumidity(currentHumidity, humidityRange);
+        var windResult = checkwind(currentWind, windRange);
+
+        if (tempResult && humidityResult && windResult) {
+          $('.output').addClass('optimal-color');
         }
-        else if (currentTemp > 9 && currentTemp < 20) {
+        else if (tempResult && humidityResult || tempResult && windResult || humidityResult && windResult) {
           $('.output').addClass('average-color');
+        } else {
+          $('.output').addClass('dangerous-color');
         }
 
         console.log(result.main.temp);
@@ -36,18 +233,3 @@ function getData() {
 $(document).ready(function() {
    $('select').material_select();
  });
-
-
- var slider = document.getElementById('test5');
-  noUiSlider.create(slider, {
-   start: [20, 80],
-   connect: true,
-   step: 1,
-   range: {
-     'min': 0,
-     'max': 100
-   },
-   format: wNumb({
-     decimals: 0
-   })
-  });

@@ -1,24 +1,24 @@
 .circle {
-  position: absolute;
-  background-color: #000000;
+  background-color: #FFFFFF;
   transition: background-color 1s linear;
-  z-index: 1;
   width: 20%;
   height: 200px;
-  align-content: center;
-
-
 }
 
 .run {
-position: absolute;
-z-index: 3;
-width: 20%;
-height: 200px;
-align-content: center;
-
+  display: block;
+  width: 20vw;
+  height: 20vw;
 }
 
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-wrapper {
+  width: 100%;
+}
 
 .dangerous-color {
   background-color: #FF0000;
@@ -53,15 +53,5 @@ align-content: center;
         font-weight: 500;
         text-shadow: 0 1px 1px black;
     }
-
-}
-
-
-
-.ranges {
-width: 80%;
-
-
-
 
 }
