@@ -3,13 +3,19 @@
   transition: background-color 1s linear;
   width: 20%;
   height: 200px;
+
 }
 
 .icon {
   display: block;
   width: 40vw;
   height: 40vw;
+
 }
+
+.l-box {
+            padding: 3em;
+        }
 
 .center {
   margin: 0 auto;
