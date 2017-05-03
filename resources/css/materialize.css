@@ -2718,7 +2718,7 @@ video.responsive-video {
 .breadcrumb [class^="mdi-"], .breadcrumb [class*="mdi-"],
 .breadcrumb i.material-icons {
   display: inline-block;
-  float: left;
+  float: right;
   font-size: 24px;
 }
 
@@ -4283,8 +4283,8 @@ nav .brand-logo.right {
 nav .brand-logo i,
 nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi-"],
 nav .brand-logo i.material-icons {
-  float: left;
-  margin-right: 15px;
+  float: right;
+  margin-left: 15px;
 }
 
 nav .nav-title {
@@ -7204,10 +7204,10 @@ input[type=range]:focus::-ms-fill-upper {
 .side-nav li > a > i,
 .side-nav li > a > [class^="mdi-"], .side-nav li > a li > a > [class*="mdi-"],
 .side-nav li > a > i.material-icons {
-  float: left;
+  float: right;
   height: 48px;
   line-height: 48px;
-  margin: 0 32px 0 0;
+  margin: 0 0 0 32px;
   width: 24px;
   color: rgba(0, 0, 0, 0.54);
 }

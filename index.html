@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Forcast</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/nermalize.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="resources/css/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
@@ -25,9 +25,9 @@
           <i class="large material-icons">mode_edit</i>
         </a>
         <ul>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons"></i>Running</a></li>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons"></i>Sailing</a></li>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons"></i>Climbing</a></li>
+          <li class="waves-effect waves-light"><a href="#!" onclick="iconRunning()"><i class="material-icons"></i>Running</a></li>
+          <li class="waves-effect waves-light"><a href="#!" onclick="iconSailing()"><i class="material-icons"></i>Sailing</a></li>
+          <li class="waves-effect waves-light"><a href="#!" onclick="iconClimbing()"><i class="material-icons"></i>Climbing</a></li>
         </ul>
       </div>
 
@@ -43,7 +43,7 @@
         <!--     <a href="#" class="brand-logo"><i class="material-icons">cloud</i>Logo</a> -->
              <ul id="nav-mobile" data-activates="mobile demo" class="right hide-on-med-and-down">
                <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-               <li><a href="badges.html"><i class="material-icons">refresh</i></a></li>
+               <li><a href="badges.html"><i class="material-icons">refresh</i></a></li> 
           <!--     <li><a href="collapsible.html"><i class="material-icons">mode_edit</i></a></li> -->
 
              </ul>
@@ -67,7 +67,7 @@
            <li><div class="userView">
 
            </div></li>
-           <li><a href="#!"><i class="material-icons">settings</i>Account</a></li>
+           <li><a href="#!">Account<i class="material-icons">settings</i></a></li>
            <li><a href="#!"><i class="material-icons">mode_edit</i>Locations</a></li>
            <li><div class="divider"></div></li>
 
@@ -93,7 +93,7 @@
     <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
 
         <div class="image-wrapper">
-          <img src="resources/images/run.png" class="run circle center output">
+          <img src="resources/images/run.png" id="iconChange" class="icon circle center output">
         </div>
 
           <!--<div class="output circle"></div>-->
@@ -128,11 +128,11 @@
           <option value="3">50% - 75%</option>
           <option value="4">75% - 100%</option>
       </select>
-      <label>Preferred Rainfall</label>
+      <label>Preferred Humidity</label>
   </div>
 
   <div class="input-field col s12">
-      <select multiple class="wind-input">
+      <select multiple id="wind-input">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">0km/h - 20km/h</option>
           <option value="2">20km/h - 40km/h</option>
@@ -140,6 +140,7 @@
       </select>
       <label>Preferred Windspeed</label>
   </div>
+   </div>
 
 
 
