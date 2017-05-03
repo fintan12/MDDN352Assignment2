@@ -15,13 +15,22 @@
   </head>
   <body>
 
-    <!--nav bar -->
 
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">Running</a></li>
-      <li><a href="#!">Climbing</a></li>
-      <li><a href="#!">Sailing</a></li>
-    </ul>
+<!-- edit activities bar -->
+
+    <div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large blue">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li class="waves-effect waves-light" button type="button" onclick="getData()"><a href="#!"><i class="material-icons"></i>Running</a></li>
+          <li class="waves-effect waves-light" button type="button" onclick="getData()"><a href="#!"><i class="material-icons"></i>Sailing</a></li>
+          <li class="waves-effect waves-light" button type="button" onclick="getData()"><a href="#!"><i class="material-icons"></i>Climbing</a></li>
+        </ul>
+      </div>
+
+
+    <!--nav bar -->
 
 
        <nav class="blue">
@@ -34,7 +43,7 @@
                <li><a href="sass.html"><i class="material-icons">search</i></a></li>
                <li><a href="badges.html"><i class="material-icons">refresh</i></a></li>
           <!--     <li><a href="collapsible.html"><i class="material-icons">mode_edit</i></a></li> -->
-               <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">mode_edit</i></a></li>
+
              </ul>
            </div>
          </nav>
@@ -78,16 +87,18 @@
 
 
 <!-- grid -->
-    <div class="pure-u-sm-1 pure-u-md-1-2">
+<div class="pure-g">
+    <div class="pure-u-1 pure-u-sm-1 pure-u-md-1-2">
 
-          <div class="output circle"></div>
+        <div class="imgA1">  <img src="resources/images/run.png"></div>
+    <div class="imgB1">      <div class="output circle"></div></div>
 
     </div>
 
 
 
 <!-- Input -->
-<div class="pure-u-sm-1 pure-u-md-1-2">
+<div class="pure-u-1 pure-u-sm-1 pure-u-md-1-2">
     <select class="input-range">
         <option value="">Select temp range</option>
         <option value="0-10">0 - 10</option>
@@ -98,6 +109,8 @@
     </select>
     <button type="button" name="button" onclick="getData()">Set</button>
     <p class="output-text"></p>
+</div>
+
 </div>
 
 

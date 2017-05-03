@@ -4,9 +4,10 @@
   width: 100%;
   height: auto;
   padding-top: 100%;
-  background-color: #FFFFFF;
+  background-color: #000000;
   transition: background-color 1s linear;
   margin-bottom: 2em;
+
 }
 
 .dangerous-color {
@@ -43,4 +44,16 @@
         text-shadow: 0 1px 1px black;
     }
 
+}
+
+img {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+.imgA1 {
+  z-index: 1;
+}
+.imgB1 {
+  z-index: 3;
 }
