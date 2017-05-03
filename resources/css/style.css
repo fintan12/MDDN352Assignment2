@@ -1,14 +1,24 @@
 .circle {
-  position: relative;
+  position: absolute;
+  background-color: #000000;
+  transition: background-color 1s linear;
+  z-index: 1;
   border-radius: 50%;
   width: 100%;
   height: auto;
   padding-top: 100%;
-  background-color: #000000;
-  transition: background-color 1s linear;
-  margin-bottom: 2em;
+
 
 }
+
+.run {
+position: absolute;
+z-index: 3;
+width: 100%;
+height: 350px;
+
+}
+
 
 .dangerous-color {
   background-color: #FF0000;
@@ -44,16 +54,4 @@
         text-shadow: 0 1px 1px black;
     }
 
-}
-
-img {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-}
-.imgA1 {
-  z-index: 1;
-}
-.imgB1 {
-  z-index: 3;
 }
